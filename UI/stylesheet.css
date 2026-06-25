@@ -1,0 +1,864 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #fff;
+    --main-color: #00abf0;
+    --card-glow: rgba(0, 171, 240, 0.15);
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    font-size: 16px; 
+}
+
+section {
+    min-height: 100vh;
+    padding: 80px 10% 40px; 
+}
+
+
+.heading {
+    text-align: center;
+    font-size: 42px; 
+    margin-bottom: 50px;
+    font-weight: 700;
+    letter-spacing: 1px; 
+}
+
+.heading span {
+    color: var(--main-color);
+    text-shadow: 0 0 15px rgba(0, 171, 240, 0.3);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 10%;
+    background: rgba(8, 27, 41, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-size: 24px; 
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--main-color);
+}
+
+.navbar a {
+    font-size: 16px; 
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--main-color);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.menu-icon {
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+}
+
+
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.home-content h1 {
+    font-size: 48px; 
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 5px 0;
+}
+
+.typing-effect {
+    color: var(--main-color);
+    text-shadow: 0 0 10px rgba(0, 171, 240, 0.2);
+}
+
+.home-content p {
+    font-size: 15px; 
+    margin: 15px 0 25px;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--main-color);
+    text-decoration: none;
+    transition: 0.4s ease;
+}
+
+.social-icons a:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--main-color);
+    transform: scale(1.05) rotate(360deg);
+}
+
+.btn-box {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border: 2px solid var(--main-color);
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    box-shadow: 0 0 15px var(--card-glow);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--main-color);
+}
+
+.btn-outline:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+}
+
+.home-img .img-glowing-circle {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 20px rgba(0, 171, 240, 0.6));
+    transition: transform 0.4s ease;
+}
+
+.home-img .img-glowing-circle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--main-color), #00ffcc);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: 1;
+}
+.home-img .img-glowing-circle {
+    position: relative;
+    width: 380px; 
+    height: 380px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: floatImage 4s ease-in-out infinite; 
+}
+
+.home-img .img-glowing-circle::before {
+    content: '';
+    position: absolute;
+    width: 104%;
+    height: 104%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--main-color), #00ffcc);
+    z-index: -1;
+    animation: rotateGlow 6s linear infinite; 
+}
+
+.home-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--bg-color);
+}
+
+@keyframes rotateGlow {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background: var(--second-bg-color);
+}
+
+.about-img img {
+    width: 280px; /* Normal about image scale */
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 20px var(--card-glow);
+}
+
+.about-content h3 {
+    font-size: 24px;
+    color: var(--main-color);
+}
+
+.about-content p {
+    font-size: 15px;
+    margin: 15px 0;
+    line-height: 1.7;
+    color: #e2e8f0;
+    text-align: justify;
+}
+
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.skills-column {
+    flex: 1 1 350px;
+}
+
+.skills-column .title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skills-column .title i {
+    color: var(--main-color);
+}
+
+.skills-box {
+    background: rgba(17, 46, 66, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.progress-box {
+    margin-bottom: 18px;
+}
+
+.progress-box:last-child {
+    margin-bottom: 0;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.bar {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-color);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--main-color), #00ffcc);
+    border-radius: 4px;
+}
+
+.grid-skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.circle-skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.radial-bar {
+    position: relative;
+    width: 90px;
+    height: 90px;
+}
+
+.radial-bar svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    width: 80px;
+    height: 80px;
+}
+
+.progress-bar-back {
+    fill: none;
+    stroke: var(--bg-color);
+    stroke-width: 5;
+}
+
+.progress-bar-front {
+    fill: none;
+    stroke: var(--main-color);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 220; 
+    filter: drop-shadow(0 0 3px var(--main-color));
+}
+
+.radial-bar .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.circle-skill-card .text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #cbd5e1;
+}
+
+/* ================= PREMIUM REBUILT PROJECTS SECTION ================= */
+.projects {
+    background: var(--second-bg-color);
+    padding: 60px 9% 60px; /* Layout height compact ki taaki zyada bada na lage */
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding-top: 20px;
+}
+
+/* Elegant Glassmorphic Card (Ab ye kabhi gayab nahi hoga) */
+.project-card {
+    background: rgba(8, 27, 41, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 25px 20px;
+    border-radius: 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    
+    /* AUTOMATED ANIMATION: Page load hote hi chalegi bina opacity bug ke */
+    animation: projectPopIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    transition: all 0.4s ease;
+}
+
+/* Cards ke beech me wave delay effect (Staggered Load) */
+.project-container .project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-container .project-card:nth-child(2) { animation-delay: 0.25s; }
+.project-container .project-card:nth-child(3) { animation-delay: 0.4s; }
+
+/* Dynamic Scale/Bounce Keyframes */
+@keyframes projectPopIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Hover Power-Up State */
+.project-card:hover {
+    transform: translateY(-8px); /* Card thoda upar uthega */
+    border-color: var(--main-color);
+    box-shadow: 0 12px 24px rgba(0, 171, 240, 0.25); /* Cyan neon glow border */
+}
+
+/* Shimmer Light Effect on Hover */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.08), transparent);
+    transition: 0.6s ease;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+/* Attractive Icons Zoom & Color Change */
+.project-icon i {
+    font-size: 38px;
+    color: var(--main-color);
+    margin-bottom: 15px;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover .project-icon i {
+    transform: scale(1.15) rotate(-5deg); /* Thoda bada aur rotate hoga */
+    color: #00ffcc; /* Icon ka color cyan se green-cyan me change hoga */
+}
+
+.project-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.project-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 22px;
+}
+
+/* Modern Capsule Style Clickable Button */
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    border-radius: 25px; /* Perfect round capsule */
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Button Hover State */
+.project-link:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--main-color); /* Button glow karega */
+    gap: 12px; /* Text aur icon ka gap badhega (arrow aage push hoga) */
+}
+
+/* ================= PREMIUM CONTACT SECTION WITH ANIMATION ================= */
+.contact {
+    padding: 80px 9% 80px;
+    background: var(--bg-color);
+    overflow: hidden; /* Taaki scrollbars na aayein animation ke time */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+/* LEFT SIDE ANIMATION: Slides in smoothly from Left */
+.contact-info {
+    flex: 1;
+    animation: contactLeftSlide 1s cubic-bezier(0.25, 1, 0.5, 1) backwards;
+}
+
+.contact-info h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.info-item i {
+    font-size: 20px;
+    color: var(--main-color);
+}
+
+/* RIGHT SIDE ANIMATION: Pops up with subtle scale from Bottom */
+.contact-form-box {
+    flex: 1.2;
+    width: 100%;
+    animation: contactRightPop 1s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: 0.2s; /* Halka sa delay dynamic feel ke liye */
+}
+
+.contact-form-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-form-box input,
+.contact-form-box textarea {
+    width: 100%;
+    padding: 16px;
+    background: rgba(8, 27, 41, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    font-size: 14.5px;
+    color: var(--text-color);
+    outline: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Focus Glow Lights Animation */
+.contact-form-box input:focus,
+.contact-form-box textarea:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 12px rgba(0, 171, 240, 0.25);
+    background: rgba(8, 27, 41, 0.85);
+}
+
+.contact-form-box textarea {
+    resize: none;
+}
+
+/* Submit Capsule Button */
+.btn-submit {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--main-color);
+    gap: 14px;
+}
+
+/* ================= ANIMATION KEYFRAMES ================= */
+@keyframes contactLeftSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes contactRightPop {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive tweaks for phones */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .input-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 10%;
+    background: var(--second-bg-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-text p {
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    background: var(--main-color);
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 10px var(--main-color);
+    transform: translateY(-2px);
+}
+
+.footer-iconTop a i {
+    font-size: 18px;
+    color: var(--bg-color);
+}
+
+
+@media (max-width: 991px) {
+    .header { padding: 15px 5%; }
+    section { padding: 80px 5% 30px; }
+    .footer { padding: 15px 5%; }
+}
+
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+    
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        padding: 15px 5%;
+        background: rgba(8, 27, 41, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        transition: 0.4s ease;
+    }
+    
+    .navbar.active { left: 0; }
+    
+    .navbar a {
+        display: block;
+        font-size: 18px;
+        margin: 20px 0;
+        margin-left: 0;
+    }
+
+    .home { flex-direction: column-reverse; text-align: center; margin-top: 30px;}
+    .home-content h1 { font-size: 36px; }
+    .social-icons { justify-content: center; }
+    .btn-box { justify-content: center; }
+    
+    .home-img .img-glowing-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about { flex-direction: column; text-align: center; }
+    .about-img img { width: 220px; height: 220px; }
+    
+    .contact form .input-box input { width: 100%; }
+}
+
+/* ================= MOBILE & TABLET RESPONSIVENESS ================= */
+
+/* 1. Tablets aur Chote Laptops ke liye (Screen width 992px se kam) */
+@media (max-width: 992px) {
+    .projects, .contact, #skills {
+        padding: 50px 5%; /* Side ka space thoda kam kiya */
+    }
+    
+    .heading {
+        font-size: 32px; /* Headings ka size thoda chota kiya */
+    }
+}
+
+/* 2. Mobile Phones ke liye (Screen width 768px se kam) */
+@media (max-width: 768px) {
+    /* Header/Navbar adjustments */
+    header {
+        padding: 15px 5%;
+    }
+    
+    /* Agar aapka menu bada hai toh use block layout dena */
+    .navbar {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap; /* Kam jagah hone par links niche shift ho jayein */
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
+    /* Projects Grid Adjustment */
+    .project-container {
+        grid-template-columns: 1fr; /* Mobile me ek line me ek hi card dikhega */
+        gap: 20px;
+    }
+
+    /* Contact Section Layout (Left aur Right ko ek ke niche ek kiya) */
+    .contact-container {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .contact-info, .contact-form-box {
+        width: 100%; /* Dono blocks full width le lenge */
+    }
+
+    .input-group {
+        flex-direction: column; /* First Name aur Email ek ke niche ek aayenge */
+        gap: 15px;
+    }
+    
+    .contact-form-box input, 
+    .contact-form-box textarea {
+        padding: 14px; /* Mobile par inputs ka size balanced kiya */
+    }
+
+    .btn-submit {
+        width: 100%; /* Mobile par submit button full screen width ka kiya */
+        justify-content: center;
+    }
+}
+
+/* 3. Bahut Chote Phones ke liye (Screen width 450px se kam) */
+@media (max-width: 450px) {
+    .heading {
+        font-size: 28px;
+    }
+    
+    /* Hero/Home section text resize */
+    .home-content h1 {
+        font-size: 30px;
+    }
+    
+    .home-content h3 {
+        font-size: 18px;
+    }
+}
